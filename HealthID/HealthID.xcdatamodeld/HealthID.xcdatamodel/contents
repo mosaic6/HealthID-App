@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Activities" representedClassName="Activities" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="data_ts" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Allergies" representedClassName="Allergies" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="is_public" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="last_reaction" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="reaction" optional="YES" attributeType="String" defaultValueString="Mild" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="BloodPressure" representedClassName="BloodPressure" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="diastolic" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="systolic" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Cholesterols" representedClassName="Cholesterols" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Conditions" representedClassName="Conditions" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="date_diagnosed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="is_public" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="emergency" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="encrypted_email" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="encrypted_name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="encrypted_phone" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="public" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="relationship" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Devices" representedClassName="Devices" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="hip_code_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="product_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Diabetes" representedClassName="Diabetes" syncable="YES">
+        <attribute name="carbs" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="feeling" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="glucose_level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="insulin_type" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="insulin_units" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tracked_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Drugs" representedClassName="Drugs" syncable="YES">
+        <attribute name="active_ingredient" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="application_no" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="dosage" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="form" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="product_market_status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="product_no" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+    </entity>
+    <entity name="MedicalConditions" representedClassName="MedicalConditions" syncable="YES">
+        <attribute name="condition_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="diagnosed_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="resolved_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="MedicationReminder" representedClassName="MedicationReminder" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="medication_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reminder_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="responded_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="taken" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Medications" representedClassName="Medications" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="drug_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="old_dosage" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="old_medication_name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Pharmacies" representedClassName="Pharmacies" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="PharmacyMemberships" representedClassName="PharmacyMemberships" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="pharmacy_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="role" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="PhoneNumbers" representedClassName="PhoneNumbers" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="encrypted_number" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="last_sms_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Procedures" representedClassName="Procedures" syncable="YES">
+        <attribute name="created_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="is_public" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="procedure_date" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Products" representedClassName="Products" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="sku" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+    </entity>
+    <entity name="ProfileFields" representedClassName="ProfileFields" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="encrypted_value" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="encrypted_value_iv" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="encrypted_value_salt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="field_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="profile_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Profiles" representedClassName="Profiles" syncable="YES">
+        <attribute name="avatar_file_name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="avatar_file_size" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="avatar_updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Reminders" representedClassName="Reminders" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="end_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="interval_type" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="medication_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="next_message_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="next_scheduled_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="schedule_data" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="start_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="week" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+    </entity>
+    <entity name="TwilioLog" representedClassName="TwilioLog" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="log_date" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+    </entity>
+    <entity name="Uploads" representedClassName="Uploads" syncable="YES">
+        <attribute name="asset_content_type" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="asset_file_name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="asset_file_size" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="asset_updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserFiles" representedClassName="UserFiles" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="file_description" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="filetype" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="ip_address" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserMedicationLog" representedClassName="UserMedicationLog" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="responded" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="sent" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="transport" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="user_medication_schedule_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserMedicationReminderQueue" representedClassName="UserMedicationReminderQueue" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="email_adderss" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="email_attempts" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="email_message" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="email_status" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="send_date" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="send_time" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="send_time_name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="sms_attempts" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sms_message" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="sms_status" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserMedicationReminderSettings" representedClassName="UserMedicationReminderSettings" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="bedtime" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="evening" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="morning" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="noon" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="reminder" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserMedications" representedClassName="UserMedications" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="dosage" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="dosage_unit" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="public" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="start_date" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="stop_date" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserMedicationSchedule" representedClassName="UserMedicationSchedule" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="administered_by" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="dayofweek" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="time_name" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="user_medication_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Vaccinations" representedClassName="Vaccinations" syncable="YES">
+        <attribute name="completed_on" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="is_public" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString="None" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="vaccination_date" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Weights" representedClassName="Weights" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="deleted_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" defaultDateTimeInterval="456249600" defaultValueString="&quot;now&quot;" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activities" positionX="295" positionY="-279" width="128" height="133"/>
+        <element name="Allergies" positionX="304" positionY="162" width="128" height="165"/>
+        <element name="BloodPressure" positionX="0" positionY="9" width="128" height="118"/>
+        <element name="Cholesterols" positionX="297" positionY="576" width="128" height="105"/>
+        <element name="Conditions" positionX="27" positionY="36" width="128" height="165"/>
+        <element name="Contacts" positionX="45" positionY="63" width="128" height="193"/>
+        <element name="Devices" positionX="36" positionY="72" width="128" height="148"/>
+        <element name="Diabetes" positionX="9" positionY="-36" width="128" height="210"/>
+        <element name="Drugs" positionX="-558" positionY="174" width="128" height="178"/>
+        <element name="MedicalConditions" positionX="-369" positionY="225" width="128" height="193"/>
+        <element name="MedicationReminder" positionX="18" positionY="54" width="128" height="133"/>
+        <element name="Medications" positionX="-263" positionY="-210" width="128" height="163"/>
+        <element name="Pharmacies" positionX="27" positionY="81" width="128" height="88"/>
+        <element name="PharmacyMemberships" positionX="54" positionY="63" width="128" height="118"/>
+        <element name="PhoneNumbers" positionX="-81" positionY="774" width="128" height="118"/>
+        <element name="Procedures" positionX="304" positionY="357" width="128" height="150"/>
+        <element name="Products" positionX="295" positionY="720" width="128" height="133"/>
+        <element name="ProfileFields" positionX="-558" positionY="-18" width="128" height="163"/>
+        <element name="Profiles" positionX="72" positionY="108" width="128" height="133"/>
+        <element name="Reminders" positionX="-504" positionY="408" width="128" height="253"/>
+        <element name="TwilioLog" positionX="63" positionY="126" width="128" height="105"/>
+        <element name="Uploads" positionX="27" positionY="54" width="128" height="163"/>
+        <element name="UserFiles" positionX="297" positionY="-54" width="128" height="178"/>
+        <element name="UserMedicationLog" positionX="54" positionY="90" width="128" height="148"/>
+        <element name="UserMedicationReminderQueue" positionX="63" positionY="36" width="128" height="255"/>
+        <element name="UserMedicationReminderSettings" positionX="-398" positionY="-36" width="128" height="163"/>
+        <element name="UserMedications" positionX="-135" positionY="486" width="128" height="223"/>
+        <element name="UserMedicationSchedule" positionX="-405" positionY="732" width="128" height="133"/>
+        <element name="Vaccinations" positionX="45" positionY="72" width="128" height="165"/>
+        <element name="Weights" positionX="54" positionY="99" width="128" height="103"/>
+    </elements>
+</model>

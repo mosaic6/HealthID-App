@@ -1,0 +1,53 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - KGModal (0.0.1)
+  - Mixpanel (2.8.1):
+    - Mixpanel/Mixpanel (= 2.8.1)
+  - Mixpanel/Mixpanel (2.8.1):
+    - Mixpanel/MPCategoryHelpers
+  - Mixpanel/MPCategoryHelpers (2.8.1)
+  - NDCollapsiveDatePicker (0.1.1)
+  - RKDropdownAlert (0.3.0)
+  - SendGrid (0.2.6):
+    - AFNetworking (~> 2.0)
+    - SMTPAPI
+  - SMTPAPI (0.2.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - KGModal (~> 0.0.1)
+  - Mixpanel
+  - NDCollapsiveDatePicker
+  - RKDropdownAlert
+  - SendGrid (~> 0.2.6)
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  KGModal: d2759dbd6d5e70e7a60bb0c3ddc7c0ece6040128
+  Mixpanel: 93c4825025e6380ced273ed7178496282e385077
+  NDCollapsiveDatePicker: dcadf6f65ee8e7d07ce733d7474c7e5ad9e4985c
+  RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
+  SendGrid: dc8275118d276ad56cfbb8a9ebcdecf0a4387f36
+  SMTPAPI: 84bcd13fb0c572a7a16c2045ebb4f32c97892c90
+
+COCOAPODS: 0.37.1
