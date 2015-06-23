@@ -1,0 +1,9 @@
+Health
+HealthID
+Emergency
+Response
+Emergency response
+qr code reader
+medical
+alert
+reader

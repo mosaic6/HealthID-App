@@ -1,0 +1,3 @@
+Access medical information quickly and easily from a HealthID Band or Card. Whether it's an emergency and a first responder needs to access your information, you're heading into a hospital, or you're at your doctors office scan the QR code found on our HealthID Cards, or type in the unique HIP code found on all of our products. If you do not have a HealthID product and want an account of your own, we'll generate a HIP code for you directly in the app. 
+
+***This application does not work with NFC technology on iOS***
