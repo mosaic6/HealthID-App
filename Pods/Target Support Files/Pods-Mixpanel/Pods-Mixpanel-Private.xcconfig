@@ -1,6 +1,6 @@
 #include "Pods-Mixpanel.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Mixpanel" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/KGModal" "${PODS_ROOT}/Headers/Public/Mixpanel" "${PODS_ROOT}/Headers/Public/NDCollapsiveDatePicker" "${PODS_ROOT}/Headers/Public/RKDropdownAlert" "${PODS_ROOT}/Headers/Public/SMTPAPI" "${PODS_ROOT}/Headers/Public/SendGrid"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Mixpanel" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Canvas" "${PODS_ROOT}/Headers/Public/KGModal" "${PODS_ROOT}/Headers/Public/Mixpanel" "${PODS_ROOT}/Headers/Public/NDCollapsiveDatePicker" "${PODS_ROOT}/Headers/Public/RKDropdownAlert" "${PODS_ROOT}/Headers/Public/SMTPAPI" "${PODS_ROOT}/Headers/Public/SendGrid"
 LIBRARY_SEARCH_PATHS = ${PODS_MIXPANEL_LIBRARY_SEARCH_PATHS}
 OTHER_LDFLAGS = ${PODS_MIXPANEL_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}

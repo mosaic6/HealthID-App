@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HealthKit/HealthKit.h>
 #import "WelcomeView.h"
+#import "CoreDataStack.h"
 
 @interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Canvas (0.1.2)
   - KGModal (0.0.1)
   - Mixpanel (2.8.1):
     - Mixpanel/Mixpanel (= 2.8.1)
@@ -35,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Canvas
   - KGModal (~> 0.0.1)
   - Mixpanel
   - NDCollapsiveDatePicker
@@ -43,6 +45,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   KGModal: d2759dbd6d5e70e7a60bb0c3ddc7c0ece6040128
   Mixpanel: 93c4825025e6380ced273ed7178496282e385077
   NDCollapsiveDatePicker: dcadf6f65ee8e7d07ce733d7474c7e5ad9e4985c

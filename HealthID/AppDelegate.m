@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "DashboardViewController.h"
 #import "Mixpanel.h"
+#import "Constants.h"
 
-#define MIXPANEL_TOKEN @"33ae8d4da327a566c727401a5240dfd2"
+
 @interface AppDelegate ()
 
 @end
@@ -34,6 +35,7 @@
         application.applicationIconBadgeNumber = 0;
     }
     
+        
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
     

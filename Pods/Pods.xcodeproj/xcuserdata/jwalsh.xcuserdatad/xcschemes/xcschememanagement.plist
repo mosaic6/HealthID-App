@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Canvas.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-KGModal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D5EC669826F65772BAB23BC</key>
+		<key>24E29627F7A1F0DE65B24B46</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AA49FB5684920A3AFE18150</key>
+		<key>455EC63EDAF65A59419BA990</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6456BC9C6F6681289D1D0EA1</key>
+		<key>5348C3C09A2D57179C69C686</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86CDA9BA36D8D1A1986339A4</key>
+		<key>5F407FD425E6032C2A6B5D6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C616322C4C62E409C68702F1</key>
+		<key>6654EE7EE57D02DC68B20936</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7B259FD9470569517E9AEB8</key>
+		<key>CD39128FA5D15F6235725BD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4BDD5F71A38955A2EC920D7</key>
+		<key>D4963AF04A4B5AB7FC939D98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1ABC25B16192C19D898FC79</key>
+		<key>D54BFBBF227973101348CCF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD80A34EA6B40889BAD51E14</key>
+		<key>DC2255FF11B273DA1C1CB281</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1AA92112715FFF978874C98</key>
 		<dict>
 			<key>primary</key>
 			<true/>

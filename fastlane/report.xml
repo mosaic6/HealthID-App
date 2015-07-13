@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="fastlane">
   <testsuite name="deploy">
-    <testcase name="0: fastlane_version" time="9.6e-05"/>
-    <testcase name="1: default_platform" time="7.0e-05"/>
-    <testcase name="2: cocoapods" time="26.071313"/>
-    <testcase name="3: ipa" time="109.093279"/>
-    <testcase name="4: snapshot" time="481.187515"/>
+    <testcase name="0: fastlane_version" time="0.000147"/>
+    <testcase name="1: default_platform" time="1.9e-05"/>
+    <testcase name="2: cocoapods" time="16.953428"/>
+    <testcase name="3: increment_build_number" time="2.508184">
+      <failure message="/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/actions/actions_helper.rb:50:in `execute_action'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/fast_file.rb:94:in `block in method_missing'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/fast_file.rb:93:in `chdir'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/fast_file.rb:93:in `method_missing'&#10;(eval):31:in `block (3 levels) in parse'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/runner.rb:36:in `call'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/runner.rb:36:in `block in execute'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/runner.rb:29:in `chdir'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/runner.rb:29:in `execute'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/lib/fastlane/lane_manager.rb:33:in `cruise_lane'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/bin/fastlane:39:in `block (2 levels) in run'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/command.rb:178:in `call'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/command.rb:178:in `call'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/command.rb:153:in `run'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/runner.rb:428:in `run_active_command'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/runner.rb:68:in `run!'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/commander-4.3.4/lib/commander/delegates.rb:15:in `run!'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/bin/fastlane:128:in `run'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0@global/gems/fastlane-1.5.0/bin/fastlane:134:in `&lt;top (required)&gt;'&#10;/Users/jwalsh/.rvm/rubies/ruby-2.2.0/bin/fastlane:23:in `load'&#10;/Users/jwalsh/.rvm/rubies/ruby-2.2.0/bin/fastlane:23:in `&lt;main&gt;'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `eval'&#10;/Users/jwalsh/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `&lt;main&gt;'&#10;&#10;Exit status of command 'cd /Users/jwalsh/Documents/Development/HealthID/Mobile/HealthID &amp;&amp; agvtool next-version -all' was 1536 instead of 0. &#10;There does not seem to be a CURRENT_PROJECT_VERSION key set for this project.  Add this key to your target's expert build settings.&#10;&#10;"/>
+    </testcase>
   </testsuite>
 </testsuites>

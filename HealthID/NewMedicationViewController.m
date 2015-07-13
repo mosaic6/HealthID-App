@@ -13,7 +13,8 @@
 @end
 
 @implementation NewMedicationViewController
-@synthesize medicationNameTF;
+@synthesize medicationNameTF, medicationTableView, drugs, patients;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -25,9 +26,15 @@
     border.borderWidth = borderWidth;
     [medicationNameTF.layer addSublayer:border];
     medicationNameTF.layer.masksToBounds = YES;
-//    medicationNameTF.text = 
-    
     [medicationNameTF becomeFirstResponder];
+    
+    drugs = [[NSArray alloc]init];
+    patients = [[NSArray alloc]init];
+    
+    medicationTableView.hidden = YES;
+    medicationTableView.dataSource = self;
+    medicationTableView.delegate = self;
+    [medicationTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,12 +45,25 @@
 - (void)getMedicationName{
     NSString *medName = [[NSString alloc]initWithString:medicationNameTF.text];
     NSString *urlRequest = [NSString stringWithFormat:@"https://api.fda.gov/drug/event.json?api_key=fvSlHapDnXke1aq2FazJtEnrPwU2mcoXFLbLAlaa&search=%@",medName];
+  
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlRequest parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        for (NSDictionary *item in responseObject) {
-            NSLog(@"%@", item);
-//            NSLog(@"%@", [item objectForKey:@"results"][@"brand_name"]);
+        
+        drugs = [responseObject objectForKey:@"results"];
+        
+        for (NSDictionary *drug in drugs) {
+            patients = [[[[[drug valueForKey:@"patient"]
+                                          valueForKey:@"drug"]
+                                          valueForKey:@"openfda"]
+                                          valueForKey:@"brand_name"]objectAtIndex:0];
+            
+            NSLog(@"%@", patients);
+            [medicationTableView reloadData];
         }
+        medicationTableView.hidden = NO;
+        [medicationNameTF resignFirstResponder];
+        
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", error);
     }];
@@ -61,4 +81,49 @@
     
     [self getMedicationName];
 }
+
+#pragma mark - Tableview Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [patients count];
+}
+
+#pragma mark - Tableview Delegate
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:20];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:18];
+    
+    NSDictionary *tempDict = [patients objectAtIndex:indexPath.row];
+    self.drugName = [NSString stringWithFormat:@"%@", tempDict];
+    cell.textLabel.text = self.drugName;
+    
+//    if (![tempDict isKindOfClass:[NSNull class]]) {
+//        cell.textLabel.text = @"No drug found";
+//    }
+    
+    return cell;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
+    [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    return indexPath;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    return indexPath;
+}
+
 @end

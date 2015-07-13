@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <RKDropdownAlert/RKDropdownAlert.h>
+#import <HealthKit/HealthKit.h>
 #import "CoreDataStack.h"
 #import "Constants.h"
 #import "Dates.h"
@@ -40,6 +41,10 @@
 @property (strong, nonatomic) UILabel *feelingLabel;
 @property (strong, nonatomic) UITapGestureRecognizer *tap;
 @property (nonatomic) BOOL isPublic;
+@property (strong, nonatomic) NSDate *date;
+
+@property (strong, nonatomic) HKHealthStore *healthStore;
+
 
 - (IBAction)dismissView:(id)sender;
 - (IBAction)saveGlucose:(id)sender;

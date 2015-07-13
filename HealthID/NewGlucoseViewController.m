@@ -35,7 +35,9 @@
             insulinTypeArray,
             tagArray,
             tap,
-            isPublic;
+            isPublic,
+            healthStore,
+            date;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -145,6 +147,8 @@
     [dateTimePicker setMaximumDate:[NSDate date]];
     [self datePicked:self];
 
+    healthStore = [[HKHealthStore alloc] init];
+    date = [NSDate date];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -186,6 +190,7 @@
         entity.feeling = feelingValue;
         entity.notes = notesString;
         
+        [self updateGlucose];
         [coreDataStack saveContext];
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
@@ -420,5 +425,39 @@
     [UIView commitAnimations];
 }
 
+#pragma mark - HealthKit
 
+- (void)updateGlucose{
+    
+    double glucoseInGrams = [glucoseLevelTF.text doubleValue]; 
+    HKUnit *mgPerdL = [HKUnit unitFromString:@"mg/dL"];
+    
+    HKQuantityType *hkQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
+    HKQuantity *hkQuantity = [HKQuantity quantityWithUnit:mgPerdL doubleValue:glucoseInGrams];
+    
+    [hkQuantity isCompatibleWithUnit:[HKUnit unitFromString:@"kg"]];
+    
+    HKQuantitySample *glucoseSample = [HKQuantitySample quantitySampleWithType:hkQuantityType quantity:hkQuantity startDate:date endDate:date];
+    [healthStore saveObject:glucoseSample withCompletion:^(BOOL success, NSError *error) {
+        
+        if(success){
+            NSLog(@"Success");
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+#pragma mark - Convenience
+
+- (NSNumberFormatter *)numberFormatter {
+    static NSNumberFormatter *numberFormatter;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        numberFormatter = [[NSNumberFormatter alloc] init];
+    });
+    
+    return numberFormatter;
+}
 @end

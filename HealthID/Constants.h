@@ -14,7 +14,9 @@
 #define kGREEN 188.0
 #define kBLUE 215.0
 
-#define API_KEY @"fvSlHapDnXke1aq2FazJtEnrPwU2mcoXFLbLAlaa"
+#define FDA_API_KEY @"fvSlHapDnXke1aq2FazJtEnrPwU2mcoXFLbLAlaa"
 #define RETURN_COUNT 20
+
+#define MIXPANEL_TOKEN @"33ae8d4da327a566c727401a5240dfd2"
 
 #endif

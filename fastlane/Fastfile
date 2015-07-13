@@ -24,15 +24,15 @@ default_platform :ios
 platform :ios do
 
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
 
     cocoapods
 
-    # increment_build_number
+    increment_build_number
 
     ipa # Build your app - more options available
 
-    # xctool # run the tests of your app
+    xctool # run the tests of your app
   end
 
   desc "Runs all the tests"
@@ -59,15 +59,19 @@ platform :ios do
     deliver(skip_deploy: true, force: true)
     # frameit
   end
+  
+  lane :inhouse do
+
+  end
 
   # You can define as many lanes as you want
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
     
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
+    slack(
+            message: "Successfully deployed new App Update."
+    )
   end
 
 

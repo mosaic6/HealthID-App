@@ -11,6 +11,8 @@
 #import "NewMedicationViewController.h"
 @interface DashboardViewController ()
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @end
 
 @implementation DashboardViewController
@@ -42,12 +44,38 @@
     startingTableList.dataSource = self;
     [startingTableList reloadData];
     
+//    welcomeView.hidden = YES;
+    
+    [self.fetchedResultsController performFetch:nil];
+    
+    [self healthKit];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationItem.hidesBackButton = YES;
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (NSFetchRequest *)entryListFetchRequest{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Weights"];
+    
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created_at" ascending:NO]];
+    
+    return request;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    NSFetchRequest *request = [self entryListFetchRequest];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    return _fetchedResultsController;
 }
 
 #pragma mark - Tableview Data Source
@@ -68,11 +96,11 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
     }
     cell.textLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:20];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:18];
     
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = [dashboardList objectAtIndex:indexPath.row];
     
     if ([cell.textLabel.text isEqualToString:@"Medications"]) {
@@ -130,6 +158,62 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+}
+
+#pragma mark - HealthKit
+
+- (void)healthKit {
+    if(NSClassFromString(@"HKHealthStore") && [HKHealthStore isHealthDataAvailable])
+    {
+        NSLog(@"HealthKit Available");
+        
+        HKHealthStore *healthStore = [[HKHealthStore alloc] init];
+        
+        // Share body mass, height and body mass index
+        NSSet *shareObjectTypes = [NSSet setWithObjects:
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMassIndex],
+//                                   [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth],
+//                                   [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol],
+                                   nil];
+        
+        // Read date of birth, biological sex and step count
+        NSSet *readObjectTypes  = [NSSet setWithObjects:
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMassIndex],
+                                   [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth],
+                                   [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol],
+                                   nil];
+        
+        // Request access
+        [healthStore requestAuthorizationToShareTypes:shareObjectTypes
+                                            readTypes:readObjectTypes
+                                           completion:^(BOOL success, NSError *error) {
+                                               
+                                               if(success == YES)
+                                               {
+                                                   NSLog(@"Success");
+                                               }
+                                               else
+                                               {
+                                                   NSLog(@"%@", error.localizedDescription);
+                                               }
+                                               
+                                           }];
+    }
 
 }
 @end

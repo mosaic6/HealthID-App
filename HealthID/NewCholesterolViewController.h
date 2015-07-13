@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <RKDropdownAlert/RKDropdownAlert.h>
-
+#import <HealthKit/HealthKit.h>
 @interface NewCholesterolViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *cholesterolTF;
 @property (weak, nonatomic) IBOutlet UIPickerView *cholesterolPicker;
 @property (strong, nonatomic) NSMutableArray *cholesterolData;
+@property (strong, nonatomic) NSDate *date;
+
+@property (strong, nonatomic) HKHealthStore *healthStore;
 
 - (IBAction)dismissView:(id)sender;
 - (IBAction)saveCholesterol:(id)sender;

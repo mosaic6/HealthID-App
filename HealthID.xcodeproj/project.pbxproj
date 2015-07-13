@@ -34,6 +34,7 @@
 		616936BD1B012A320013D06A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616936BC1B012A320013D06A /* Images.xcassets */; };
 		616936C01B012A320013D06A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616936BE1B012A320013D06A /* LaunchScreen.xib */; };
 		616936CC1B012A320013D06A /* HealthIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 616936CB1B012A320013D06A /* HealthIDTests.m */; };
+		617C8F171B3A39DC00723FD5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617C8F161B3A39DC00723FD5 /* HealthKit.framework */; };
 		6184C2581B1F8E760037A6E0 /* Conditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184C2571B1F8E760037A6E0 /* Conditions.m */; };
 		6184C25E1B20AC2E0037A6E0 /* Allergies.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184C25D1B20AC2E0037A6E0 /* Allergies.m */; };
 		6184C2611B20B1140037A6E0 /* Procedures.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184C2601B20B1140037A6E0 /* Procedures.m */; };
@@ -47,6 +48,7 @@
 		619D4BE81B1BE7FE00C9F20E /* NewConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D4BE71B1BE7FE00C9F20E /* NewConditionViewController.m */; };
 		619D4BEB1B1E0A5D00C9F20E /* NewProcedureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D4BEA1B1E0A5D00C9F20E /* NewProcedureViewController.m */; };
 		61C4961E1B0FE25A004B5703 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C4961D1B0FE25A004B5703 /* CoreMotion.framework */; };
+		61D0D4A01B504F18001F87BA /* Medications.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0D49F1B504F18001F87BA /* Medications.m */; };
 		61DD49A91B02697300D83292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DD49A81B02697300D83292 /* LoginViewController.m */; };
 		61F518661B067D6E00151899 /* Dates.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F518651B067D6E00151899 /* Dates.m */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,8 @@
 		616936C51B012A320013D06A /* HealthIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		616936CA1B012A320013D06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		616936CB1B012A320013D06A /* HealthIDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthIDTests.m; sourceTree = "<group>"; };
+		617C8F151B3A39DC00723FD5 /* HealthID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HealthID.entitlements; sourceTree = "<group>"; };
+		617C8F161B3A39DC00723FD5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		6184C2561B1F8E760037A6E0 /* Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conditions.h; sourceTree = "<group>"; };
 		6184C2571B1F8E760037A6E0 /* Conditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conditions.m; sourceTree = "<group>"; };
 		6184C25C1B20AC2E0037A6E0 /* Allergies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Allergies.h; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		61C4961B1B0FB7A7004B5703 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		61C4961C1B0FB7A7004B5703 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		61C4961D1B0FE25A004B5703 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		61D0D49E1B504F18001F87BA /* Medications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medications.h; sourceTree = "<group>"; };
+		61D0D49F1B504F18001F87BA /* Medications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medications.m; sourceTree = "<group>"; };
 		61DD49A71B02697300D83292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		61DD49A81B02697300D83292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		61DE22E893DFC61F8B6E03FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617C8F171B3A39DC00723FD5 /* HealthKit.framework in Frameworks */,
 				61C4961E1B0FE25A004B5703 /* CoreMotion.framework in Frameworks */,
 				44021086749080642D6EA937 /* libPods.a in Frameworks */,
 			);
@@ -183,7 +190,9 @@
 		616936AB1B012A320013D06A /* HealthID */ = {
 			isa = PBXGroup;
 			children = (
+				617C8F151B3A39DC00723FD5 /* HealthID.entitlements */,
 				61C496151B0FB797004B5703 /* Fonts */,
+				619D4B6A1B18F46200C9F20E /* Constants.h */,
 				616936B01B012A320013D06A /* AppDelegate.h */,
 				616936B11B012A320013D06A /* AppDelegate.m */,
 				619D4BD71B1B94E700C9F20E /* CoreDataStack.h */,
@@ -196,7 +205,6 @@
 				616936BE1B012A320013D06A /* LaunchScreen.xib */,
 				616936B31B012A320013D06A /* HealthID.xcdatamodeld */,
 				616936AC1B012A320013D06A /* Supporting Files */,
-				619D4B6A1B18F46200C9F20E /* Constants.h */,
 			);
 			path = HealthID;
 			sourceTree = "<group>";
@@ -287,9 +295,19 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		61D0D49D1B504EEE001F87BA /* Medication */ = {
+			isa = PBXGroup;
+			children = (
+				61D0D49E1B504F18001F87BA /* Medications.h */,
+				61D0D49F1B504F18001F87BA /* Medications.m */,
+			);
+			name = Medication;
+			sourceTree = "<group>";
+		};
 		61F517FD1B06560700151899 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61D0D49D1B504EEE001F87BA /* Medication */,
 				6113B4821B31B94C00A10722 /* Diabetes.h */,
 				6113B4831B31B94C00A10722 /* Diabetes.m */,
 				6113B47C1B31AC1900A10722 /* Cholesterols.h */,
@@ -315,6 +333,7 @@
 		9E309F2D44154D7831F9D190 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				617C8F161B3A39DC00723FD5 /* HealthKit.framework */,
 				61C4961D1B0FE25A004B5703 /* CoreMotion.framework */,
 				61DE22E893DFC61F8B6E03FC /* libPods.a */,
 			);
@@ -381,6 +400,12 @@
 				TargetAttributes = {
 					616936A81B012A320013D06A = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = P624W8659J;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					616936C41B012A320013D06A = {
 						CreatedOnToolsVersion = 6.3;
@@ -476,6 +501,7 @@
 				610F7CCF1B164FEB00771B86 /* NewAllergyViewController.m in Sources */,
 				616936B21B012A320013D06A /* AppDelegate.m in Sources */,
 				6184C2641B20B5EB0037A6E0 /* Vaccinations.m in Sources */,
+				61D0D4A01B504F18001F87BA /* Medications.m in Sources */,
 				6184C2581B1F8E760037A6E0 /* Conditions.m in Sources */,
 				6184C25E1B20AC2E0037A6E0 /* Allergies.m in Sources */,
 				619D4BE81B1BE7FE00C9F20E /* NewConditionViewController.m in Sources */,
@@ -629,9 +655,13 @@
 			baseConfigurationReference = 1E7938D6FBD1708116A4B31A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthID/HealthID.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -640,9 +670,13 @@
 			baseConfigurationReference = AAB2011BB6BFB9F78158954D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthID/HealthID.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

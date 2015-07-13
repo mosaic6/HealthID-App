@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C7B259FD9470569517E9AEB8"
+               BlueprintIdentifier = "D4963AF04A4B5AB7FC939D98"
                BuildableName = "NDCollapsiveDatePicker.bundle"
                BlueprintName = "Pods-NDCollapsiveDatePicker-NDCollapsiveDatePicker"
                ReferencedContainer = "container:Pods.xcodeproj">

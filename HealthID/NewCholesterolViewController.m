@@ -14,7 +14,11 @@
 @end
 
 @implementation NewCholesterolViewController
-@synthesize cholesterolData,cholesterolPicker,cholesterolTF;
+@synthesize cholesterolData,
+            cholesterolPicker,
+            cholesterolTF,
+            healthStore,
+            date;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +31,11 @@
     
     self.cholesterolPicker.delegate = self;
     self.cholesterolPicker.dataSource = self;
+    
+    healthStore = [[HKHealthStore alloc]init];
+    date = [NSDate date];
+    
+    [self getCholesterol];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +57,8 @@
     if (cholesterolValue) {
         entity.value = cholesterolValue;
         entity.created_at = [[NSDate date]timeIntervalSinceNow];
+        
+        [self updateCholesterol];
         [coreDataStack saveContext];
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -84,4 +95,86 @@
     cholesterolTF.text = [NSString stringWithFormat:@"%ld", (long)firstNum];
 }
 
+#pragma mark - HealthKit
+
+- (void)updateCholesterol{
+    
+    double cholesterolInGrams = [cholesterolTF.text doubleValue];
+    HKUnit *mgPerdL = [HKUnit unitFromString:@"mg"];
+
+    HKQuantityType *hkQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol];
+    HKQuantity *hkQuantity = [HKQuantity quantityWithUnit:mgPerdL doubleValue:cholesterolInGrams];
+    
+    [hkQuantity isCompatibleWithUnit:[HKUnit unitFromString:@"kg"]];
+    
+    HKQuantitySample *weightSample = [HKQuantitySample quantitySampleWithType:hkQuantityType quantity:hkQuantity startDate:date endDate:date];
+    [healthStore saveObject:weightSample withCompletion:^(BOOL success, NSError *error) {
+        
+        if(success){
+            NSLog(@"Success");
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)getCholesterol {
+    // Fetch the user's default cholesterol unit in pounds.
+    NSMassFormatter *massFormatter = [[NSMassFormatter alloc] init];
+    massFormatter.unitStyle = NSFormattingUnitStyleShort;
+    
+    NSMassFormatterUnit cholesterolFormatterUnit = NSMassFormatterUnitGram;
+    self.cholesterolTF.text = [massFormatter unitStringFromValue:10 unit:cholesterolFormatterUnit];
+    
+    // Query to get the user's latest weight, if it exists.
+    HKQuantityType *cholesterolType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol];
+    [self fetchMostRecentDataofQuanityType:cholesterolType withCompletion:^(HKQuantity *mostRecentQuantity, NSError *error) {
+        if (error) {
+            NSLog(@"An error occured fetching the user's cholesterol information. In your app, try to handle this gracefully. The error was: %@.", error);
+            abort();
+        }
+        
+        // Determine the weight in the required unit.
+        double usersCholesterol = 0.0;
+        
+        if (mostRecentQuantity) {
+            HKUnit *cholesterolUnit = [HKUnit gramUnit];
+            usersCholesterol = [mostRecentQuantity doubleValueForUnit:cholesterolUnit];
+            
+            // Update the user interface.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.cholesterolTF.text = [NSNumberFormatter localizedStringFromNumber:@(usersCholesterol) numberStyle:NSNumberFormatterNoStyle];
+            });
+        }
+    }];
+}
+
+- (void)fetchMostRecentDataofQuanityType:(HKQuantityType *)quantityType withCompletion:(void(^)(HKQuantity *mostRecentQuantity, NSError *error))completion{
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:HKSampleSortIdentifierStartDate ascending:NO];
+    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:quantityType predicate:nil limit:1 sortDescriptors:@[sortDescriptor] resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+        if (completion && error) {
+            completion(nil, error);
+            return;
+        }
+        HKQuantitySample *quantitySample = results.firstObject;
+        HKQuantity *quantity = quantitySample.quantity;
+        if (completion)completion(quantity, error);
+    }];
+    [self.healthStore executeQuery:query];
+    
+}
+
+#pragma mark - Convenience
+
+- (NSNumberFormatter *)numberFormatter {
+    static NSNumberFormatter *numberFormatter;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        numberFormatter = [[NSNumberFormatter alloc] init];
+    });
+    
+    return numberFormatter;
+}
 @end
