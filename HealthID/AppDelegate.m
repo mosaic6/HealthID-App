@@ -38,7 +38,7 @@
         
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
-    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

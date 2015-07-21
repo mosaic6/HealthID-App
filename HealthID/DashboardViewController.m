@@ -9,6 +9,8 @@
 #import "DashboardViewController.h"
 #import "Dates.h"
 #import "NewMedicationViewController.h"
+#import "DashboardCards.h"
+#import "Canvas.h"
 @interface DashboardViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -16,7 +18,7 @@
 @end
 
 @implementation DashboardViewController
-@synthesize welcomeView, startingTableList, dashboardList;
+@synthesize welcomeView, dashboardList, mainCollectionView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,15 +42,21 @@
                      @"Cholesterol",
                      @"Vaccinations", nil];
     
-    startingTableList.delegate = self;
-    startingTableList.dataSource = self;
-    [startingTableList reloadData];
-    
 //    welcomeView.hidden = YES;
     
     [self.fetchedResultsController performFetch:nil];
     
     [self healthKit];
+    
+    DashboardCards *card = [[DashboardCards alloc]initWithFrame:CGRectMake(16, 100, self.view.frame.size.width - 16, 200)];
+    
+    card.hidden = YES;
+    
+    [self.view addSubview:card];
+    
+    self.mainCollectionView.delegate = self;
+    self.mainCollectionView.dataSource = self;
+    [mainCollectionView reloadData];
     
 }
 
@@ -76,89 +84,6 @@
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
     return _fetchedResultsController;
-}
-
-#pragma mark - Tableview Data Source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.dashboardList count];
-}
-
-
-#pragma mark - Tableview Delegate
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:20];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:18];
-    
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.text = [dashboardList objectAtIndex:indexPath.row];
-    
-    if ([cell.textLabel.text isEqualToString:@"Medications"]) {
-        cell.imageView.image = [UIImage imageNamed:@"pillIcon"];
-    } else if ([cell.textLabel.text isEqualToString:@"Diabetes"]){
-        cell.imageView.image = [UIImage imageNamed:@"diabetesIcon"];
-    } else if ([cell.textLabel.text isEqualToString:@"Weight"]){
-        cell.imageView.image = [UIImage imageNamed:@"weight icon"];
-    } else if ([cell.textLabel.text isEqualToString:@"Blood Pressure"]){
-        cell.imageView.image = [UIImage imageNamed:@"bloodPressure"];
-    } else if ([cell.textLabel.text isEqualToString:@"Allergies"]){
-        cell.imageView.image = [UIImage imageNamed:@"allergies icon"];
-    } else if ([cell.textLabel.text isEqualToString:@"Procedures"]){
-        cell.imageView.image = [UIImage imageNamed:@"scalpel"];
-    } else if ([cell.textLabel.text isEqualToString:@"Vaccinations"]){
-        cell.imageView.image = [UIImage imageNamed:@"medical"];
-    } else if ([cell.textLabel.text isEqualToString:@"Cholesterol"]){
-        cell.imageView.image = [UIImage imageNamed:@"diabetesIcon"];
-    } else if ([cell.textLabel.text isEqualToString:@"Conditions"]){
-        cell.imageView.image = [UIImage imageNamed:@"diabetesIcon"];
-    }
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = cell.textLabel.text;
-    
-    if ([cellText isEqualToString:@"Medications"]) {
-        [self performSegueWithIdentifier:@"showNewMedication" sender:self];
-    } else if ([cellText isEqualToString:@"Weight"]){
-        [self performSegueWithIdentifier:@"showNewWeight" sender:self];
-    } else if ([cellText isEqualToString:@"Blood Pressure"]){
-        [self performSegueWithIdentifier:@"showNewBloodPressure" sender:self];
-    } else if ([cellText isEqualToString:@"Allergies"]){
-        [self performSegueWithIdentifier:@"showNewAllergy" sender:self];
-    } else if ([cellText isEqualToString:@"Conditions"]){
-        [self performSegueWithIdentifier:@"showNewCondition" sender:self];
-    } else if ([cellText isEqualToString:@"Procedures"]){
-        [self performSegueWithIdentifier:@"showNewProcedure" sender:self];
-    } else if ([cellText isEqualToString:@"Vaccinations"]){
-        [self performSegueWithIdentifier:@"showNewVaccination" sender:self];    
-    } else if ([cellText isEqualToString:@"Cholesterol"]){
-        [self performSegueWithIdentifier:@"showNewCholesterol" sender:self];    
-    } else if ([cellText isEqualToString:@"Diabetes"]){
-        [self performSegueWithIdentifier:@"showNewGlucose" sender:self];    
-    }
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
-    [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-    return indexPath;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
 }
 
 #pragma mark - HealthKit
@@ -216,4 +141,110 @@
     }
 
 }
+
+#pragma mark - Collection View Methods
+
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [dashboardList count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"Cell";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    cellLabel.frame = CGRectMake(0, 0, self.view.frame.size.width, 30);
+    UIImageView *cellImage = (UIImageView *)[cell viewWithTag:200];
+    
+    cellLabel.text = [dashboardList objectAtIndex:indexPath.row];
+    
+    [cell.layer setBorderWidth:1.0f];
+    [cell.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [cell.layer setCornerRadius:50.0f];
+    
+    if ([cellLabel.text isEqualToString:@"Medications"]) {
+        cellImage.image = [UIImage imageNamed:@"pillIcon"];
+    } else if ([cellLabel.text isEqualToString:@"Diabetes"]){
+        cellImage.image = [UIImage imageNamed:@"diabetesIcon"];
+    } else if ([cellLabel.text isEqualToString:@"Weight"]){
+        cellImage.image = [UIImage imageNamed:@"weight icon"];
+    } else if ([cellLabel.text isEqualToString:@"Blood Pressure"]){
+        cellImage.image = [UIImage imageNamed:@"bloodPressure"];
+    } else if ([cellLabel.text isEqualToString:@"Allergies"]){
+        cellImage.image = [UIImage imageNamed:@"allergies icon"];
+    } else if ([cellLabel.text isEqualToString:@"Procedures"]){
+        cellImage.image = [UIImage imageNamed:@"scalpel"];
+    } else if ([cellLabel.text isEqualToString:@"Vaccinations"]){
+        cellImage.image = [UIImage imageNamed:@"medical"];
+    } else if ([cellLabel.text isEqualToString:@"Cholesterol"]){
+        cellImage.image = [UIImage imageNamed:@"diabetesIcon"];
+    } else if ([cellLabel.text isEqualToString:@"Conditions"]){
+        cellImage.image = [UIImage imageNamed:@"diabetesIcon"];
+    }
+
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    NSString *cellText = cellLabel.text;
+    
+    cell.transform = CGAffineTransformMakeScale(1, 1);
+    [UIView animateKeyframesWithDuration:0.07 delay:0 options:0 animations:^{
+        // End
+        cell.transform = CGAffineTransformMakeScale(1, 1.2);
+    } completion:^(BOOL finished) {
+        [UIView animateKeyframesWithDuration:0.07 delay:0 options:0 animations:^{
+            // End
+            cell.transform = CGAffineTransformMakeScale(1.2, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateKeyframesWithDuration:0.07 delay:0 options:0 animations:^{
+                // End
+                cell.transform = CGAffineTransformMakeScale(0.9, 0.9);
+            } completion:^(BOOL finished) {
+                [UIView animateKeyframesWithDuration:0.07 delay:0 options:0 animations:^{
+                    // End
+                    cell.transform = CGAffineTransformMakeScale(1, 1);
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }];
+        }];
+    }];
+    
+    if ([cellText isEqualToString:@"Medications"]) {
+        [self performSegueWithIdentifier:@"showNewMedication" sender:self];
+    } else if ([cellText isEqualToString:@"Weight"]){
+        [self performSegueWithIdentifier:@"showNewWeight" sender:self];
+    } else if ([cellText isEqualToString:@"Blood Pressure"]){
+        [self performSegueWithIdentifier:@"showNewBloodPressure" sender:self];
+    } else if ([cellText isEqualToString:@"Allergies"]){
+        [self performSegueWithIdentifier:@"showNewAllergy" sender:self];
+    } else if ([cellText isEqualToString:@"Conditions"]){
+        [self performSegueWithIdentifier:@"showNewCondition" sender:self];
+    } else if ([cellText isEqualToString:@"Procedures"]){
+        [self performSegueWithIdentifier:@"showNewProcedure" sender:self];
+    } else if ([cellText isEqualToString:@"Vaccinations"]){
+        [self performSegueWithIdentifier:@"showNewVaccination" sender:self];
+    } else if ([cellText isEqualToString:@"Cholesterol"]){
+        [self performSegueWithIdentifier:@"showNewCholesterol" sender:self];
+    } else if ([cellText isEqualToString:@"Diabetes"]){
+        [self performSegueWithIdentifier:@"showNewGlucose" sender:self];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+//    NSString *cellText = cellLabel.text;
+    
+    [cell reloadInputViews];
+}
+
+
 @end

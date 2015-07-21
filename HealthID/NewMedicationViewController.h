@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) NSString *drugName;
 @property (strong, nonatomic) NSString *dosage;
-
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UITableView *medicationTableView;
 - (IBAction)dismissView:(id)sender;
 - (IBAction)saveMedication:(id)sender;

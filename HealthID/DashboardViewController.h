@@ -11,10 +11,10 @@
 #import "WelcomeView.h"
 #import "CoreDataStack.h"
 
-@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DashboardViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *welcomeView;
-@property (weak, nonatomic) IBOutlet UITableView *startingTableList;
 @property (strong, nonatomic) NSArray *dashboardList;
+@property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 
 @end

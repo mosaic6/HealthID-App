@@ -13,7 +13,7 @@
 @end
 
 @implementation NewMedicationViewController
-@synthesize medicationNameTF, medicationTableView, drugs, patients;
+@synthesize medicationNameTF, medicationTableView, drugs, patients, activityView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +35,13 @@
     medicationTableView.dataSource = self;
     medicationTableView.delegate = self;
     [medicationTableView reloadData];
+
+    activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    activityView.center=self.view.center;
+    activityView.hidden = YES;
+    [self.view addSubview:activityView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +65,9 @@
                                           valueForKey:@"brand_name"]objectAtIndex:0];
             
             NSLog(@"%@", patients);
+            
             [medicationTableView reloadData];
+            [activityView startAnimating];
         }
         medicationTableView.hidden = NO;
         [medicationNameTF resignFirstResponder];
@@ -67,6 +76,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", error);
     }];
+    activityView.hidden = NO;
+    [activityView startAnimating];
 }
 
 - (IBAction)dismissView:(id)sender {
@@ -105,13 +116,23 @@
     
     NSDictionary *tempDict = [patients objectAtIndex:indexPath.row];
     self.drugName = [NSString stringWithFormat:@"%@", tempDict];
-    cell.textLabel.text = self.drugName;
     
-//    if (![tempDict isKindOfClass:[NSNull class]]) {
-//        cell.textLabel.text = @"No drug found";
-//    }
+    
+    if (![tempDict isKindOfClass:[NSNull class]]) {
+        cell.textLabel.text = self.drugName;
+        [activityView stopAnimating];
+    } else {
+        cell.textLabel.text = @"No drug found";
+    }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = cell.textLabel.text;
+    
+    medicationNameTF.text = cellText;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{

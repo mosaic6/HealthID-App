@@ -26,6 +26,7 @@
 		6113B4811B31AC4800A10722 /* NewCholesterolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6113B4801B31AC4800A10722 /* NewCholesterolViewController.m */; };
 		6113B4841B31B94C00A10722 /* Diabetes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6113B4831B31B94C00A10722 /* Diabetes.m */; };
 		6113B4871B31B97600A10722 /* NewGlucoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6113B4861B31B97600A10722 /* NewGlucoseViewController.m */; };
+		6121B6C21B55924100D60BD1 /* DashboardCards.m in Sources */ = {isa = PBXBuildFile; fileRef = 6121B6C11B55924100D60BD1 /* DashboardCards.m */; };
 		616936AF1B012A320013D06A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 616936AE1B012A320013D06A /* main.m */; };
 		616936B21B012A320013D06A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 616936B11B012A320013D06A /* AppDelegate.m */; };
 		616936B51B012A320013D06A /* HealthID.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 616936B31B012A320013D06A /* HealthID.xcdatamodeld */; };
@@ -87,6 +88,8 @@
 		6113B4831B31B94C00A10722 /* Diabetes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Diabetes.m; sourceTree = "<group>"; };
 		6113B4851B31B97600A10722 /* NewGlucoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGlucoseViewController.h; sourceTree = "<group>"; };
 		6113B4861B31B97600A10722 /* NewGlucoseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGlucoseViewController.m; sourceTree = "<group>"; };
+		6121B6C01B55924100D60BD1 /* DashboardCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCards.h; sourceTree = "<group>"; };
+		6121B6C11B55924100D60BD1 /* DashboardCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCards.m; sourceTree = "<group>"; };
 		616936A91B012A320013D06A /* HealthID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616936AD1B012A320013D06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		616936AE1B012A320013D06A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				619D4B671B17B87800C9F20E /* IGLDropDownMenu.m */,
 				610E64441B13A9AC00C9F79E /* WelcomeView.h */,
 				610E64451B13A9AC00C9F79E /* WelcomeView.m */,
+				6121B6C01B55924100D60BD1 /* DashboardCards.h */,
+				6121B6C11B55924100D60BD1 /* DashboardCards.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				610F7CC91B16115400771B86 /* NewWeightViewController.m in Sources */,
 				619D4BDC1B1BA30E00C9F20E /* Weights.m in Sources */,
 				61F518661B067D6E00151899 /* Dates.m in Sources */,
+				6121B6C21B55924100D60BD1 /* DashboardCards.m in Sources */,
 				6113B47E1B31AC1900A10722 /* Cholesterols.m in Sources */,
 				610E64431B138F6600C9F79E /* DashboardViewController.m in Sources */,
 				619D4BEB1B1E0A5D00C9F20E /* NewProcedureViewController.m in Sources */,
@@ -660,6 +666,42 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MPCategoryHelpers\"",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-Canvas\"",
+					"-l\"Pods-ComponentKit\"",
+					"-l\"Pods-KGModal\"",
+					"-l\"Pods-Mixpanel\"",
+					"-l\"Pods-NDCollapsiveDatePicker\"",
+					"-l\"Pods-RKDropdownAlert\"",
+					"-l\"Pods-SMTPAPI\"",
+					"-l\"Pods-SendGrid\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -675,6 +717,42 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MPCategoryHelpers\"",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-Canvas\"",
+					"-l\"Pods-ComponentKit\"",
+					"-l\"Pods-KGModal\"",
+					"-l\"Pods-Mixpanel\"",
+					"-l\"Pods-NDCollapsiveDatePicker\"",
+					"-l\"Pods-RKDropdownAlert\"",
+					"-l\"Pods-SMTPAPI\"",
+					"-l\"Pods-SendGrid\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

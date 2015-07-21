@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F407FD425E6032C2A6B5D6E"
+               BlueprintIdentifier = "764C89753E64D77310777FB9"
                BuildableName = "libPods-SMTPAPI.a"
                BlueprintName = "Pods-SMTPAPI"
                ReferencedContainer = "container:Pods.xcodeproj">
